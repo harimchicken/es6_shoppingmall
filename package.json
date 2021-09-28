@@ -20,14 +20,17 @@
   },
   "homepage": "https://github.com/harimchicken/es6_shoppingmall#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
+    "gravatar": "^1.8.2",
     "mongoose": "^6.0.8",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "normalize": "^0.3.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
