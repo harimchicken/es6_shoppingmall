@@ -6,11 +6,14 @@ import colors from 'colors';
 
 import dotEnv from 'dotenv';
 import { errorHandler, notFound } from './middleware/errMiddleware.js';
+import connectDB from './config/db.js'
 
 dotEnv.config();
 
 const app = express()
 
+// connectDB
+connectDB()
 
 // middleware
 app.use(cors())
