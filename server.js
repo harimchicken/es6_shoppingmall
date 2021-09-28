@@ -6,12 +6,12 @@ import colors from 'colors';
 
 import dotEnv from 'dotenv';
 import { errorHandler, notFound } from './middleware/errMiddleware.js';
-import connectDB from './config/db.js'
+import connectDB from './config/db.js';
 
 
 // Routes
-import productRoutes from './routes/productRoutes.js'
-
+import productRoutes from './routes/productRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 
 
@@ -29,6 +29,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
 
 
 // global error handler
