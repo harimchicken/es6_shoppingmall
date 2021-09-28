@@ -4,6 +4,7 @@ import asynchandler from 'express-async-handler';
 import user from "../models/userModel.js";
 import userModel from '../models/userModel.js';
 import generateToken from "../utils/generateToken.js";
+import {protect} from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 // @desc    User signup
@@ -56,8 +57,16 @@ router.post('/login', asynchandler( async (req, res) => {
 // @desc    User profile
 // @route   GET /api/users/profile
 // @access  Private
-router.get('/profile', asynchandler( async (req, res) => {
+router.get('/profile', protect, asynchandler( async (req, res) => {
+    const user = await userModel.findById(req.user._id)
 
+    if (user) {
+        // user.password = undefined;
+        res.json(user)
+    } else {
+        res.status(404)
+        throw new Error('User not found')
+    }
 }))
 
 export default router
