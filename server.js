@@ -8,6 +8,13 @@ import dotEnv from 'dotenv';
 import { errorHandler, notFound } from './middleware/errMiddleware.js';
 import connectDB from './config/db.js'
 
+
+// Routes
+import productRoutes from './routes/productRoutes.js'
+
+
+
+
 dotEnv.config();
 
 const app = express()
@@ -20,6 +27,8 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
+
+app.use('/api/products', productRoutes)
 
 
 // global error handler
