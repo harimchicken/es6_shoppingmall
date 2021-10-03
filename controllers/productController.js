@@ -27,7 +27,7 @@ const product_Detail = asyncHandler(async (req, res) => {
 
 // @desc    Create a product
 // @route   POST /api/products
-// @access  Private
+// @access  Private / only admin
 
 const createProduct = asyncHandler( async (req, res) => {
     
