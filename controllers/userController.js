@@ -53,7 +53,7 @@ const loginUser = asynchandler( async (req, res) => {
 
 const profileUser = asynchandler( async (req, res) => {
     const user = await userModel.findById(req.user._id)
-
+    console.log(user)
     if (user) {
         // user.password = undefined;
         res.json(user)

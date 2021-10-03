@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "es6_shoppingmall",
   "main": "index.js",
-  "type": "module",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
@@ -31,7 +31,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.8",
     "morgan": "^1.10.0",
-    "normalize": "^0.3.1"
+    "normalize": "^0.3.1",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"

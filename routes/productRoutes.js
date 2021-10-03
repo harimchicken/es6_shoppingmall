@@ -8,6 +8,7 @@ import { product_All, product_Detail, createProduct } from '../controllers/produ
 const router = express.Router()
 
 
+
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public

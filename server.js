@@ -1,19 +1,19 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import morgan from 'morgan';
+import morgan, { format } from 'morgan';
 import cors from 'cors';
 import colors from 'colors';
 
-import dotEnv from 'dotenv';
+import dotEnv, { config } from 'dotenv';
 import { errorHandler, notFound } from './middleware/errMiddleware.js';
 import connectDB from './config/db.js';
+import passport from 'passport';
+import { protect } from './config/passport.js';
 
 
 // Routes
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
-
-
 
 dotEnv.config();
 
@@ -21,6 +21,13 @@ const app = express()
 
 // connectDB
 connectDB()
+
+// passport middleware
+app.use(passport.initialize())
+
+// passport config
+protect(passport)
+
 
 // middleware
 app.use(cors())

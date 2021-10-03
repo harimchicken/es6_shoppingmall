@@ -1,7 +1,10 @@
 
 import express from "express";
+import passport from "passport";
 
-import {protect} from "../middleware/authMiddleware.js";
+// import {protect} from "../middleware/authMiddleware.js";
+
+const authCheck = passport.authenticate('jwt', {session: false});
 
 import { registerUser, loginUser, profileUser } from "../controllers/userController.js";
 
@@ -25,6 +28,6 @@ router.post('/login', loginUser)
 // @desc    User profile
 // @route   GET /api/users/profile
 // @access  Private
-router.get('/profile', protect, profileUser)
+router.get('/profile', authCheck, profileUser)
 
 export default router
